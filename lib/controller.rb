@@ -5,11 +5,6 @@ require_relative 'helpers/data_mapper'
 require_relative 'helpers/warden'
 require 'pry'
 
-
-
-
-
-
 class SlowFood < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
@@ -62,7 +57,7 @@ class SlowFood < Sinatra::Base
     env['warden'].authenticate!
     flash[:success] = "Successfully logged in #{current_user.username}"
     if session[:return_to].nil?
-      redirect '/'
+      redirect '/protected'
     else
       redirect session[:return_to]
     end
@@ -74,7 +69,7 @@ class SlowFood < Sinatra::Base
     flash[:success] = 'Successfully logged out'
     redirect '/'
   end
-
+  
   post '/auth/unauthenticated' do
     session[:return_to] = env['warden.options'][:attempted_path] if session[:return_to].nil?
 

@@ -1,32 +1,54 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slow Food</title>
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+
+</head>
+
 <body>
-<title>Sinatra Warden</title>
 
-<h1>User authentication</h1>
+  <div class="container">
 
-<p>
-  <% if current_user %>
-    Logged in as <%= current_user.username %>
-    <a href="/auth/logout">Log Out</a></p>
-  <% else %>
+    <div class="grid-x">
+      <div class="cell">
+        <center><img src="./img/logo.png" alt=""></center>
+      </div>
+      <div class="cell box">
 
-    <a href="/auth/login">Log In</a>
-  <% end %>
+        <h1>User authentication</h1>
 
-  <% if flash[:success] %>
-    <div style="color:green;">
-      <%= flash[:success] %>
+        <p>
+        <% if current_user %>
+          Logged in as
+          <%= current_user.username %>
+          <a href="/auth/logout">Log Out</a></p>
+        <% else %>
+          <a href="/auth/login">Log In</a>
+        <% end %>
+
+        <% if flash[:success] %>
+          <div style="color:green;">
+          <%= flash[:success] %>
+          </div>
+        <% end %>
+
+        <% if flash[:error] %>
+          <div style="color:red;">
+          <%= flash[:error] %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+
+      </div>
     </div>
-  <% end %>
+  </div>
 
-  <% if flash[:error] %>
-    <div style="color:red;">
-      <%= flash[:error] %>
-    </div>
-  <% end %>
-
-  <%= yield %>
-  </body>
-</html>
+</body>
