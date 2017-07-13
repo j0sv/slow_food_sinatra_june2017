@@ -1,11 +1,27 @@
+<div id="shopping_cart">
+</div>
+
 <h1>SlowMenu:</h1>
 <% @categories.each do |category| %>
   <h2><%= category.name %></h2>
-  <br>
-  <% category.dishes.each do |dish| %>
-    <%= dish.name %>
-    <%= dish.description %>
-    <%= dish.price %>
+
     <br>
-  <% end %>
+    <% category.dishes.each do |dish| %>
+    <form class="dishes" action="/" method="post">
+      <%= dish.id %>
+      <%= dish.name %>
+      <%= dish.description %>
+      <%= dish.price %>
+      <button type="button" class="add_dish" name="add_dish" value="add">add</button>
+      <br>
+    </form>
+    <% end %>
+    <div class="shopping_cart">
+      <ul>
+        <% @shopping_cart.orders.each do |dish| %>
+<%= dish %>
+        <% end %>
+      </ul>
+    </div>
+
 <% end %>
