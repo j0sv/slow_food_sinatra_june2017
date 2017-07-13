@@ -1,14 +1,11 @@
 require 'bundler'
+require './lib/models/shopping_cart.rb'
+
 Bundler.require
 Dir[File.join(File.dirname(__FILE__), 'models', '*.rb')].each { |file| require file }
 require_relative 'helpers/data_mapper'
 require_relative 'helpers/warden'
 require 'pry'
-
-
-
-
-
 
 class SlowFood < Sinatra::Base
   enable :sessions
@@ -51,6 +48,21 @@ class SlowFood < Sinatra::Base
   end
 
   get '/' do
+    @categories = Category.all
+    @dishes = Dish.all
+    erb :index
+  end
+
+  post '/' do
+    #Look for posted data from the menu
+    #Create an instance of shopping_cart
+    my_shopping_cart = Shopping_cart.new
+    #Add items to cart
+
+    dish_to_add = params[:dish]
+
+    my_shopping_cart.add_item(dish_to_add.id)
+
     @categories = Category.all
     @dishes = Dish.all
     erb :index
