@@ -16,6 +16,13 @@ Feature: As a Customer
 Scenario: A customer is able to add dishes to their cart
   Given I visit the menu page
   And I click on the "add" button
-  And show me the page
   Then I should see the "Burger Special" in my cart
   And show me the page
+
+  Scenario: A customer is able to add two dishes to their cart by pressing the same add twice
+    Given I visit the menu page
+    And I click on the "add" button
+    Then I should see the "Burger Special 1" in my cart
+    And I click on the "add" button
+    Then I should see the "Burger Special 2" in my cart
+    And show me the page
