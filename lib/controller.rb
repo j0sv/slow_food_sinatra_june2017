@@ -48,23 +48,31 @@ class SlowFood < Sinatra::Base
   end
 
   get '/' do
+    @shopping_cart = Shopping_cart.new(session)
     @categories = Category.all
     @dishes = Dish.all
+    @my_cart = @shopping_cart.show_cart(session)
+
     erb :index
   end
+
+
 
   post '/' do
     #Look for posted data from the menu
     #Create an instance of shopping_cart
-    my_shopping_cart = Shopping_cart.new
+
     #Add items to cart
+    #binding.pry
+    @shopping_cart = Shopping_cart.new(session)
+    dish_id = params[:dish_id]
 
-    dish_to_add = params[:dish]
-
-    my_shopping_cart.add_item(dish_to_add.id)
+    @shopping_cart.add_to_cart(session, dish_id)
 
     @categories = Category.all
     @dishes = Dish.all
+    @my_cart = @shopping_cart.show_cart(session)
+    #binding.pry
     erb :index
   end
 
