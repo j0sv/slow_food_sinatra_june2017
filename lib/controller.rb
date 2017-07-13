@@ -76,6 +76,12 @@ class SlowFood < Sinatra::Base
     erb :index
   end
 
+  get '/clear_cart' do
+    @shopping_cart = Shopping_cart.new(session)
+    @shopping_cart.clear_cart(session)
+    redirect '/'
+  end
+
   get '/auth/login' do
     erb :login
   end

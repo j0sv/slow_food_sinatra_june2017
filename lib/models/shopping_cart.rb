@@ -24,10 +24,11 @@ class Shopping_cart
 
 
   def add_to_session(session, item)
-    if session[:cart].include?(item)
-      session[:cart][item].quantity += 1
-    else
+    found_item = session[:cart].find { |cart_item| cart_item.dish_id == item.dish_id }
+    if found_item.nil?
       session[:cart] << item
+    else
+      found_item.quantity += 1
     end
   end
 
