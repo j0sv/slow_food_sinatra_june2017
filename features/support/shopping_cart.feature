@@ -16,5 +16,6 @@ Feature: As a Customer
 Scenario: A customer is able to add dishes to their cart
   Given I visit the menu page
   And I click on the "add" button
+  And show me the page
   Then I should see the "Burger Special" in my cart
   And show me the page

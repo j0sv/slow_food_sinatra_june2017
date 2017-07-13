@@ -1,44 +1,43 @@
-require './models/dish.rb'
-
 class Shopping_cart
-  attr_accessor :orders
 
-  def initialize()
-    #Read from the session variable and save it in to the Hash
-    @orders=[]
-    @dishes=Dish.all
+  def initialize(session)
+    if session[:cart].nil?
+      session[:cart] = []
+    end
   end
 
-def add_to_cart(dish_id)
-  # Find dish using ID
-  dish = @dishes.select { |dish| dish.id == dish_id }
-  @orders << dish
-  add_to_session(dish)
-  redirect_to_menu_page
-end
+  def add_to_cart(session, dish_id)
+    # Find dish using ID
+    dish = Dish.get(dish_id)
+    item = Shopping_cart_item.new(dish)
+    add_to_session(session, item)
+  end
 
-def show_cart
-  @cart = session[:cart]
-end
+  def show_cart(session)
+    session[:cart]
+  end
 
-def clear_cart
-  session[:cart] = {}
-  redirect_to_show_cart_path
-end
+  #def remove(dish_id)
+  #  destroy_dish_item(dish_id)
+  #  redirect_to :back
+  #end
 
-def remove
-  destroy_dish_item(params[:dish])
-  redirect_to :back
-end
 
-def add_to_session(dish)
-  session[:cart][dish].present?
-  session[:cart][dish].quantity += 1
-end
+  def add_to_session(session, item)
+    if session[:cart].include?(item)
+      session[:cart][item].quantity += 1
+    else
+      session[:cart] << item
+    end
+  end
 
-def destroy_dish(dish_id)
-  session[:cart][dish_id].delete dish_id
-end
+  def clear_cart(session)
+    session[:cart] = []
+  end
+
+  #def destroy_dish(dish_id)
+  #  @items[:cart][dish_id].delete dish_id
+  #end
 
 
 #def add_item(dish_id)
