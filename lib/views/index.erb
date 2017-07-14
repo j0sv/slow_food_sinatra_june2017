@@ -1,7 +1,6 @@
 <% if @my_cart.count != 0 %>
   <div id="shopping_cart">
     Shopping cart
-    <a href ="/clear_cart">Clear Cart</a>
     <ul>
       <% @my_cart.each do |item| %>
         <li>

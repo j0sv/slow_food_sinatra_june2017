@@ -3,21 +3,22 @@ Feature: As a Customer
   I need to add dishes to my order
 
   Background:
-    Given the following dishes exist
+
+  Given the following categories exist
+    | name         |
+    | Starter      |
+    | Main         |
+    | Dessert      |
+
+  And the following dishes exist
       | name                  | description          | price | category_id |
       | Burger Special        | A bacon cheeseburger | 75    | 2           |
       | Not so Special Burger | Meat Burger          | 25    | 2           |
-    And the following categories exist
-      | name         |
-      | Starter      |
-      | Main         |
-      | Dessert      |
 
 Scenario: A customer is able to add dishes to their cart
   Given I visit the menu page
   And I click on the "add" button
   Then I should see the "Burger Special" in my cart
-  And show me the page
 
   Scenario: A customer is able to add two dishes to their cart by pressing the same add twice
     Given I visit the menu page
@@ -25,4 +26,3 @@ Scenario: A customer is able to add dishes to their cart
     Then I should see the "Burger Special 1" in my cart
     And I click on the "add" button
     Then I should see the "Burger Special 2" in my cart
-    And show me the page
