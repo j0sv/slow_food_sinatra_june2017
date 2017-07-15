@@ -1,11 +1,30 @@
+<% if @my_cart.count != 0 %>
+  <div id="shopping_cart">
+    Shopping cart
+
+    <ul>
+      <% @my_cart.each do |item| %>
+        <li>
+          <%=item.dish_name%>
+          <%=item.quantity%>
+        </li>
+      <%end%>
+    </ul>
+    <a href="./clear_cart">Empty the cart!</a>
+  </div>
+<%end%>
+
 <h1>SlowMenu:</h1>
 <% @categories.each do |category| %>
   <h2><%= category.name %></h2>
-  <br>
-  <% category.dishes.each do |dish| %>
-    <%= dish.name %>
-    <%= dish.description %>
-    <%= dish.price %>
-    <br>
-  <% end %>
+    <% category.dishes.each do |dish| %>
+    <form class="dishes" action="/" method="post">
+      <input type="hidden" name="dish_id" value="<%= dish.id %>">
+      <%= dish.name %>
+      <%= dish.description %>
+      <%= dish.price %>
+      <button type="submit" class="add_dish" name="add_dish" value="add">add</button>
+      <br>
+    </form>
+    <% end %>
 <% end %>
