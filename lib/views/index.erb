@@ -1,30 +1,62 @@
 <% if @my_cart.count != 0 %>
-  <div id="shopping_cart">
-    Shopping cart
+<div class="cell">
+  <div class="card shadow radius padding-1">
+    <h1><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shopping Cart</h1>
 
-    <ul>
-      <% @my_cart.each do |item| %>
-        <li>
-          <%=item.dish_name%>
-          <%=item.quantity%>
-        </li>
-      <%end%>
-    </ul>
-    <a href="./clear_cart">Empty the cart!</a>
+      <table class="hover">
+        <tr>
+          <th class="left">Dish</th>
+          <th class="center">Quantity</th>
+          <th class="right">Price</th>
+          <th class="right">Sum</th>
+        </tr>
+        <% @my_cart.each do |item| %>
+        <tr>
+          <td class="left"><%=item.dish_name%></td>
+          <td class="center"><%=item.quantity%></td>
+          <td class="right">150 kr</td>
+          <td class="right">300 kr</td>
+        </tr>
+        <%end%>
+        <tr>
+          <td class="left">Köttbullar med mos</td>
+          <td class="center">1</td>
+          <td class="right">150</td>
+          <td class="right">150</td>
+        </tr>
+        <tr>
+          <td class="left"></td>
+          <td class="center"></td>
+          <td class="right"><strong>Total sum:</strong></td>
+          <td class="right"><strong>450</strong></td>
+        </tr>
+      </table>
+      <div class="inline">
+        <a href="/clear_cart" class="button lined float-left"><i class="fa fa-trash"></i>&nbsp;Empty Shopping Cart&nbsp;</a>
+        <a href="#" class="button lined float-right"><i class="fa fa-shopping-cart"></i>&nbsp;Check Out Items&nbsp;</a>
+      </div>
+    </div>
   </div>
 <%end%>
 
-<h1>SlowMenu:</h1>
-<% @categories.each do |category| %>
-  <h2><%= category.name %></h2>
-    <% category.dishes.each do |dish| %>
-    <form class="dishes" action="/" method="post">
-      <input type="hidden" name="dish_id" value="<%= dish.id %>">
-      <%= dish.name %>
-      <%= dish.description %>
-      <%= dish.price %>
-      <button type="submit" class="add_dish" name="add_dish" value="add">add</button>
-      <br>
-    </form>
-    <% end %>
-<% end %>
+<div class="cell">
+  <div class="card shadow radius padding-1">
+    <div class="stitched">
+      <h1>SlowMenu:</h1>
+      <% @categories.each do |category| %>
+        <h2><%= category.name %></h2>
+        <% category.dishes.each do |dish| %>
+          <form class="dishes" action="/" method="post">
+            <input type="hidden" name="dish_id" value="<%= dish.id %>">
+            <div class="dish-container">
+              <button type="submit" class="float-right" name="add_dish" value="add"><i class="fa fa-plus-square"></i></button>
+              <div class="dish inline float-left"><%= dish.name %></div>
+              <div class="dish inline float-right"><%= dish.price %> kr</div>
+              <div class="dish clear light"><%= dish.description %></div>
+            </div>
+          </form>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
