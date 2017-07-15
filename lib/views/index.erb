@@ -6,10 +6,13 @@
       <% @my_cart.each do |item| %>
         <div class="">
           <h3 class="dish_name"><%=item.dish_name%> </h3>
-          <h3 class="dish_price">Quantity:  <%=item.quantity%></h3>
+          <h3 class="dish_price">Price:  <%=item.dish_price%></h3>
+          <h3 class="quantity">Quantity:  <%=item.quantity%></h3>
           <hr color="green" class=".clearfix">
         </div>
       <%end%>
+      Total:
+      <h3 class="cart_total">Total: <%=@cart_total%> </h3>
       <a href="./clear_cart">Empty the cart!</a>
     </div>
   </div>

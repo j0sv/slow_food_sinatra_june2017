@@ -29,4 +29,13 @@ class Shopping_cart
   def clear_cart()
     @session[:cart] = []
   end
+
+  def cart_total
+    total = 0
+    @session[:cart].each do |cart_item|
+      total += cart_item.dish_price.to_i * cart_item.quantity
+    end
+    total
+  end
+
 end

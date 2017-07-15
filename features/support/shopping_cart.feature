@@ -26,3 +26,10 @@ Scenario: A customer is able to add dishes to their cart
     Then I should see the "Shopping cart" in my cart
     And I click on the "add" button
     Then I should see the "Quantity: 2" in my cart
+
+  Scenario: A customer is able to view the total in their shopping cart
+     Given I visit the menu page
+     And I click on the "add" button
+     And I click on the "add" button
+     And show me the page
+     Then I should see the "Total: 150" in my cart

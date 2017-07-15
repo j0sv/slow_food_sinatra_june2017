@@ -50,6 +50,7 @@ class SlowFood < Sinatra::Base
     @categories = Category.all
     @dishes = Dish.all
     @my_cart = @shopping_cart.show_cart()
+    @cart_total = @shopping_cart.cart_total()
 
     erb :index
   end
@@ -59,6 +60,7 @@ class SlowFood < Sinatra::Base
     dish_id = params[:dish_id]
 
     @shopping_cart.add_to_cart(dish_id)
+    @cart_total = @shopping_cart.cart_total()
 
     @categories = Category.all
     @dishes = Dish.all

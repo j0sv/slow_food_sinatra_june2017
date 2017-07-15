@@ -18,9 +18,7 @@ And the following dishes exist
 Scenario: A customer sees a list of dishes divided into categories
   Given I visit the menu page
   Then I should see "Main"
-  And show me the page
 
 Scenario: A customer sees a list of dishes on the menu page
   Given I visit the menu page
   Then I should see "Burger Special"
-  #And show me the page
