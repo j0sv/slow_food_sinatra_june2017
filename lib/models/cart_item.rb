@@ -8,5 +8,4 @@ class Shopping_cart_item
     @quantity = 1
   end
 
-
 end

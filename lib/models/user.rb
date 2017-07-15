@@ -1,4 +1,3 @@
-
 class User
   include DataMapper::Resource
 
@@ -14,6 +13,5 @@ class User
       false
     end
   end
+  
 end
-
-
