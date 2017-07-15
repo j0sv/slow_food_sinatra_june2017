@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Shadows+Into+Light');
+
+body {
+  background-image: url(../img/bg.png);
+  background-attachment: fixed;
+  margin-top: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+hr {
+  height: 1px;
+  color: #123455;
+  background-color: green;
+  border: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Shadows Into Light', cursive;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+td {
+
+}
+
+.card {
+  background-image: url(../img/black.jpg);
+  box-shadow: 4px 4px 4px rgba(6, 6, 6, 0.5);
+  max-width: 800px;
+  min-width: 400px;
+  border: 2px solid rgba(6, 6, 6, 0.4);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.cell {
+  margin-bottom: 20px
+}
+
+.stitched {
+  padding: 15px;
+   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+   border: dashed 2px rgba(255, 255, 255, 0.70);
+   width: 100%;
+   height: 100%
+}
+
+.lined {
+   padding: 6px;
+   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+   border: solid 2px rgba(255, 255, 255, 0.70);
+   font-family: 'Roboto', sans-serif;
+   font-size: 14px;
+   font-weight: bold;
+   background-color: rgba(6, 6, 6, 0.4);
+   color: rgba(255, 255, 255, 0.70);
+}
+
+.dish-container {
+  margin-bottom: 10px;
+}
+
+.dish {
+  font-family: 'Roboto', sans-serif;
+  font-size: 145x;
+  color: rgba(255, 255, 255, 0.70);
+  background-color: rgba(5, 5, 5, 0.15);
+  padding: 5px;
+  margin: 0px;
+  line-height: 1;
+  height: 25px;
+  margin: 3px;
+}
+
+.inline {
+    display: inline;
+}
+
+.clear {
+  clear: both;
+}
+
+.left  {
+  text-align: left;
+}
+
+.right  {
+  text-align: right;
+}
+
+.center  {
+  text-align: center;
+}
+
+.light {
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+.black {
+  color: black;
+}
+
+.menu-item, .menu-item:active, .menu-item:visited, .menu-item:active {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.70);
+  vertical-align: middle;
+}
+
+a:hover, .menu-item:hover {
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.fa {
+  vertical-align: middle;
+  line-height: 30px;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.70);
+  margin-left: 5px;
+  vertical-align: middle;
+  display:inline-block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+.fa:hover {
+  color: rgba(255, 255, 255, 0.90);
+}
