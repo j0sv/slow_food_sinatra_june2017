@@ -1,5 +1,4 @@
 require 'bundler'
-require './lib/models/shopping_cart.rb'
 
 Bundler.require
 Dir[File.join(File.dirname(__FILE__), 'models', '*.rb')].each { |file| require file }
@@ -71,6 +70,29 @@ class SlowFood < Sinatra::Base
   get '/clear_cart' do
     @shopping_cart = Shopping_cart.new(session)
     @shopping_cart.clear_cart()
+    redirect '/'
+  end
+
+  post '/order' do
+    unless current_user
+      redirect '/auth/login'
+    end
+    flash[:success] = "Order was placed, you can pick it up in 30 minutes"
+    @shopping_cart = Shopping_cart.new(session)
+    @shopping_cart.clear_cart()
+    #shopping_cart = Shopping_cart.new(session)
+    #order = Order.new(:user_id => current_user.id, :order_date => Date.new())
+    #rows = []
+    #shopping_cart.show_cart.each do | cart_item |
+    #  row = Row.new(:dish_id => cart_item.dish_id, :quantity => cart_item.quantity)
+    #  rows << row
+    #end
+    #order[:rows] = rows
+    #if order.save
+    #  puts "Order #{order.id} is saved"
+    #else
+    #  puts "Order failed"
+    #end
     redirect '/'
   end
 

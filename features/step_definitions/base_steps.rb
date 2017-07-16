@@ -40,3 +40,18 @@ Then(/^I should see "([^"]*)" in element "([^"]*)"$/) do |text, cssClass|
     expect(page).to have_content text
   end
 end
+
+Given(/^I add items to my cart$/) do
+  first(:button, button).click
+end
+
+Then(/^I should see the "([^"]*)"$/) do |content|
+    expect(page).to have_content content
+end
+
+Given(/^I log in using "([^"]*)" and "([^"]*)"$/) do |username, password|
+  visit '/auth/login'
+  find('#username').set(username)
+  find('#password').set(password)
+  click_link_or_button('Log In')
+end

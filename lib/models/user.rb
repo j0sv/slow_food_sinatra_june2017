@@ -6,6 +6,8 @@ class User
 
   property :password, BCryptHash
 
+  has n, :orders
+
   def authenticate(attempted_password)
     if self.password == attempted_password
       true

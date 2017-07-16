@@ -1,38 +1,40 @@
 <% if @my_cart.count != 0 %>
 <div class="cell" id="shopping-cart">
-  <div class="card shadow radius padding-1">
-    <h1><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shopping Cart:</h1>
-      <table class="hover">
-        <tr>
-          <th class="left">Dish</th>
-          <th class="center">Quantity</th>
-          <th class="right">Price</th>
-          <th class="right">Sum</th>
-        </tr>
-        <% @my_cart.each do |item| %>
+  <form action="/order" method="post">
+    <div class="card shadow radius padding-1">
+      <h1><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shopping Cart:</h1>
+        <table class="hover">
           <tr>
-            <td class="left"><%=item.dish_name%></td>
-            <td class="center quantity"><%=item.quantity%></td>
-            <td class="right"><%=item.dish_price%> kr</td>
-            <td class="right"><%=item.dish_price * item.quantity %> kr</td>
+            <th class="left">Dish</th>
+            <th class="center">Quantity</th>
+            <th class="right">Price</th>
+            <th class="right">Sum</th>
           </tr>
-        <%end%>
-        <tr>
-          <td class="left"></td>
-          <td class="center"></td>
-          <td class="right"><strong>Total:</strong></td>
-          <td class="right"><strong><%=@cart_total%></strong></td>
-        </tr>
-      </table>
-      <div class="inline">
-        <a href="/clear_cart" class="button lined float-left">
-          <i class="fa fa-trash"></i>&nbsp;Empty Shopping Cart&nbsp;
-        </a>
-        <a href="#" class="button lined float-right">
-          <i class="fa fa-shopping-cart"></i>&nbsp;Check Out Items&nbsp;
-        </a>
+          <% @my_cart.each do |item| %>
+            <tr>
+              <td class="left"><%=item.dish_name%></td>
+              <td class="center quantity"><%=item.quantity%></td>
+              <td class="right"><%=item.dish_price%> kr</td>
+              <td class="right"><%=item.dish_price * item.quantity %> kr</td>
+            </tr>
+          <%end%>
+          <tr>
+            <td class="left"></td>
+            <td class="center"></td>
+            <td class="right"><strong>Total:</strong></td>
+            <td class="right"><strong><%=@cart_total%></strong></td>
+          </tr>
+        </table>
+        <div class="inline">
+          <a href="/clear_cart" class="button lined float-left">
+            <i class="fa fa-trash"></i>&nbsp;Empty Shopping Cart&nbsp;
+          </a>
+          <button type="submit" class="button lined float-right" id="checkout">
+            <i class="fa fa-shopping-cart"></i>&nbsp;Check Out Items&nbsp;
+          </button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 <%end%>
 
