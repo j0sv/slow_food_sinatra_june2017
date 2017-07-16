@@ -1,5 +1,5 @@
 <% if @my_cart.count != 0 %>
-<div class="cell">
+<div class="cell" id="shopping-cart">
   <div class="card shadow radius padding-1">
     <h1><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shopping Cart:</h1>
       <table class="hover">
@@ -12,16 +12,16 @@
         <% @my_cart.each do |item| %>
           <tr>
             <td class="left"><%=item.dish_name%></td>
-            <td class="center"><%=item.quantity%></td>
-            <td class="right">150 kr</td>
-            <td class="right">300 kr</td>
+            <td class="center quantity"><%=item.quantity%></td>
+            <td class="right"><%=item.dish_price%> kr</td>
+            <td class="right"><%=item.dish_price * item.quantity %> kr</td>
           </tr>
         <%end%>
         <tr>
           <td class="left"></td>
           <td class="center"></td>
-          <td class="right"><strong>Total sum:</strong></td>
-          <td class="right"><strong>450</strong></td>
+          <td class="right"><strong>Total:</strong></td>
+          <td class="right"><strong><%=@cart_total%></strong></td>
         </tr>
       </table>
       <div class="inline">

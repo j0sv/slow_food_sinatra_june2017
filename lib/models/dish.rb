@@ -6,4 +6,5 @@ class Dish
   property :description, String
   property :price, Integer
   belongs_to :category
+
 end

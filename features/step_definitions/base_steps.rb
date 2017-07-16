@@ -30,7 +30,13 @@ Given(/^I click on the "([^"]*)" button$/) do |button|
 end
 
 Then(/^I should see the "([^"]*)" in my cart$/) do |dish|
-  within('div#shopping_cart') do
+  within('div#shopping-cart') do
     expect(page).to have_content dish
+  end
+end
+
+Then(/^I should see "([^"]*)" in element "([^"]*)"$/) do |text, cssClass|
+  within('.'+cssClass) do
+    expect(page).to have_content text
   end
 end

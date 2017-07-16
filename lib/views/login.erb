@@ -1,5 +1,12 @@
-<form action="/auth/login" method="post">
-  <p>Username: <input type="text" name="user[username]" /></p>
-  <p>Password: <input type="password" name="user[password]" /></p>
-  <input type="submit" value="Log In" />
-</form>
+<div class="cell">
+  <div class="card shadow radius padding-1">
+    <div class="stitched">
+      <h1>Sign in:</h1>
+      <form action="/auth/login" method="post">
+        <p><h2>Username: </h2><input type="text" name="user[username]" /></p>
+        <p><h2>Password: </h2><input type="password" name="user[password]" /></p>
+        <input class="button lined float-right" type="submit" value="Log In" />
+      </form>
+    </div>
+  </div>
+</div>
