@@ -5,6 +5,8 @@ class Dish
   property :name, String
   property :description, String
   property :price, Integer
+
   belongs_to :category
+  has n, :rows
 
 end
