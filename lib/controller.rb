@@ -22,9 +22,7 @@ class SlowFood < Sinatra::Base
   end
 
   use Warden::Manager do |config|
-    # Tell Warden how to save our User info into a session.
-    # Sessions can only take strings, not Ruby code, we'll store
-    # the User's `id`
+
     config.serialize_into_session { |user| user.id }
     # Now tell Warden how to take what we've stored in the session
     # and get a User from that information.
@@ -51,7 +49,8 @@ class SlowFood < Sinatra::Base
     @shopping_cart = Shopping_cart.new(session)
     @categories = Category.all
     @dishes = Dish.all
-    @my_cart = @shopping_cart.show_cart(session)
+    @my_cart = @shopping_cart.show_cart()
+    @cart_total = @shopping_cart.cart_total()
 
     erb :index
   end
@@ -60,18 +59,18 @@ class SlowFood < Sinatra::Base
     @shopping_cart = Shopping_cart.new(session)
     dish_id = params[:dish_id]
 
-    @shopping_cart.add_to_cart(session, dish_id)
+    @shopping_cart.add_to_cart(dish_id)
+    @cart_total = @shopping_cart.cart_total()
 
     @categories = Category.all
     @dishes = Dish.all
-    @my_cart = @shopping_cart.show_cart(session)
-    #binding.pry
+    @my_cart = @shopping_cart.show_cart()
     erb :index
   end
 
   get '/clear_cart' do
     @shopping_cart = Shopping_cart.new(session)
-    @shopping_cart.clear_cart(session)
+    @shopping_cart.clear_cart()
     redirect '/'
   end
 
@@ -99,7 +98,6 @@ class SlowFood < Sinatra::Base
   post '/auth/unauthenticated' do
     session[:return_to] = env['warden.options'][:attempted_path] if session[:return_to].nil?
 
-    # Set the error and use a fallback if the message is not defined
     flash[:error] = env['warden.options'][:message] || 'You must log in'
     redirect '/auth/login'
   end
