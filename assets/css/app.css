@@ -3,27 +3,29 @@
 body {
   background-image: url(../img/bg.png);
   background-attachment: fixed;
-  color: rgba(255, 255, 255, 0.70);
-  margin-top: 20px;
-  margin-bottom: 20px;
-    font-family: 'Roboto', sans-serif;
-    color: green;
+  margin-top: 15px;
+  font-family: 'Roboto', sans-serif;
 }
 
 p {
   font-size: 12px;
-  font-family: 'Roboto', sans-serif;
+  color: rgba(255, 255, 255, 0.70);
 }
 
-h2, h3, h4, h5 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
+hr {
+  height: 1px;
+  color: #123455;
+  background-color: green;
+  border: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Shadows Into Light', cursive;
+  color: rgba(255, 255, 255, 0.70);
 }
 
 h1 {
-  font-family: 'Shadows Into Light', cursive;
   font-size: 36px;
-  font-weight: bold;
 }
 
 h2 {
@@ -34,90 +36,113 @@ h3 {
   font-size: 18px;
 }
 
-.container {
+td {
+
+}
+
+.card {
+  background-image: url(../img/black.jpg);
+  box-shadow: 4px 4px 4px rgba(6, 6, 6, 0.5);
   max-width: 800px;
   min-width: 400px;
+  border: 2px solid rgba(6, 6, 6, 0.4);
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-.box {
-    background-image: url(../img/black.jpg);
-    background-color: orange;
-    margin-top: 20px;
-    padding: 8px;
-    box-shadow: 4px 4px 4px #888888;
-    border: 2px solid rgba(25, 25, 25, 0.9);
-    color: rgba(255, 255, 255, 0.70);
-    overflow:auto;
-}
-
-
-
-.square {
-  width: 30px;
+.cell {
+  margin-bottom: 20px
 }
 
 .stitched {
-   padding: 35px;
-   margin: 5px;
-   margin-right: 10px;
+  padding: 15px;
    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
    border: dashed 2px rgba(255, 255, 255, 0.70);
-   width: auto;
+   width: 100%;
    height: 100%
 }
 
 .lined {
-   padding: 5px;
-   margin: 5px;
+   padding: 6px;
    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-   border: dashed 2px rgba(255, 255, 255, 0.70);
    border: solid 2px rgba(255, 255, 255, 0.70);
-   color: rgba(255, 255, 255, 0.70);
    font-family: 'Roboto', sans-serif;
    font-size: 14px;
-   font-weight: thin;
-   background-color: rgba(5, 5, 5, 0.15);
-   padding: 6px;
-   margin: 0px;
-   margin-left: 8px;
-   line-height: 1;
-   float: right;
+   font-weight: bold;
+   background-color: rgba(6, 6, 6, 0.4);
+   color: rgba(255, 255, 255, 0.70);
 }
 
-.dish_name {
+.dish-container {
+  margin-bottom: 10px;
+}
+
+.dish {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 145x;
+  color: rgba(255, 255, 255, 0.70);
   background-color: rgba(5, 5, 5, 0.15);
   padding: 5px;
   margin: 0px;
   line-height: 1;
-  float: left;
+  height: 25px;
+  margin: 3px;
 }
 
-.dish_price {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: rgba(5, 5, 5, 0.15);
-  padding: 5px;
-  margin: 0px;
-  line-height: 1;
-  float: right;
+.inline {
+    display: inline;
 }
 
-.dish_description {
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  background-color: rgba(5, 5, 5, 0.15);
-  padding: 5px;
-  margin-bottom: 15px;
-  line-height: normal;
+.clear {
   clear: both;
 }
 
-.logo {
-  margin: 20px;
+.left  {
+  text-align: left;
+}
+
+.right  {
+  text-align: right;
+}
+
+.center  {
+  text-align: center;
+}
+
+.light {
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+.black {
+  color: black;
+}
+
+.menu-item, .menu-item:active, .menu-item:visited, .menu-item:active {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.70);
+  vertical-align: middle;
+}
+
+a:hover, .menu-item:hover {
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.fa {
+  vertical-align: middle;
+  line-height: 30px;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.70);
+  margin-left: 5px;
+  vertical-align: middle;
+  display:inline-block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+.fa:hover {
+  color: rgba(255, 255, 255, 0.90);
 }

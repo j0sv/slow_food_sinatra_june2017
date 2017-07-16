@@ -23,9 +23,9 @@ Scenario: A customer is able to add dishes to their cart
   Scenario: A customer is able to add two dishes to their cart by pressing the same add twice
     Given I visit the menu page
     And I click on the "add" button
-    Then I should see the "Shopping cart" in my cart
+    Then I should see the "Shopping Cart" in my cart
     And I click on the "add" button
-    Then I should see the "Quantity: 2" in my cart
+    Then I should see "2" in element "quantity"
 
   Scenario: A customer is able to view the total in their shopping cart
      Given I visit the menu page
