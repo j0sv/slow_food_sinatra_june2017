@@ -96,6 +96,10 @@ class SlowFood < Sinatra::Base
     redirect '/'
   end
 
+  get '/about' do
+    erb :about
+  end
+
   get '/auth/login' do
     erb :login
   end
