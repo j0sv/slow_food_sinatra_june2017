@@ -15,8 +15,8 @@ When(/^I add "([^"]*)" to the shopping cart$/) do |dish_name|
   end
 end
 
-When(/^I click "([^"]*)"$/) do |button_name|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I click "([^"]*)"$/) do |button_name| 
+  click_button button_name
 end
 
 # Given(/^I visit the "([^"]*)" page$/) do |arg1|
