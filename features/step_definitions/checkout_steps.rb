@@ -1,13 +1,18 @@
 When(/^I visit the "([^"]*)" page$/) do |page_name|
-  pending # Write code here that turns the phrase above into concrete actions
+  case page_name
+  when 'index'
+  when 'menu'
+    visit '/'
+  else
+    raise "This page doesn't exist"
+  end
 end
 
 When(/^I add "([^"]*)" to the shopping cart$/) do |dish_name|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^I should see "([^"]*)" in my cart$/) do |dish_name|
-  pending # Write code here that turns the phrase above into concrete actions
+  dish = Dish.first(name: dish_name)
+  within "#dish#{dish.id}" do
+    click_button 'add'
+  end
 end
 
 When(/^I click "([^"]*)"$/) do |button_name|

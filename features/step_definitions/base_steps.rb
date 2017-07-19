@@ -29,7 +29,7 @@ Given(/^I click on the "([^"]*)" button$/) do |button|
   first(:button, button).click
 end
 
-Then(/^I should see the "([^"]*)" in my cart$/) do |dish|
+Then(/^I should see "([^"]*)" in my cart$/) do |dish|
   within('div#shopping-cart') do
     expect(page).to have_content dish
   end
