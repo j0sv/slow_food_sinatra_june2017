@@ -22,6 +22,7 @@ Feature: Placing an order
     Then I should see "Burger Special" in my cart
     When I click "Place order"
     Then I should see "Order was placed, you can pick it up in 30 minutes"
+    And I should see "The total for your order is 75 kr"
 
   Scenario: A customer trying to place an order when s/he not logged in
     Given I visit the "menu" page
