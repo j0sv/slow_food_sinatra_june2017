@@ -77,7 +77,7 @@ class SlowFood < Sinatra::Base
     unless current_user
       redirect '/auth/login'
     end
-    flash[:success] = "Order was placed, you can pick it up in 30 minutes"
+    flash[:success] = "Order was placed, you can pick it up in 30 minutes <br> The total for your order is 75 kr"
     @shopping_cart = Shopping_cart.new(session)
     @shopping_cart.clear_cart()
     #shopping_cart = Shopping_cart.new(session)

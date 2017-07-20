@@ -7,6 +7,6 @@ class Order
   property :order_status, String
 
   belongs_to :user
-  has n, :rows
+  #has n, :dishes, through: :order_item
 
 end
